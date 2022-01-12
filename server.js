@@ -15,5 +15,6 @@ try {
 app.use(cors());
 app.use(express.json());
 app.use('/posters', posterRoutes);
+app.use(express.static('./images'));
 
 app.listen(5000, () => console.log('Server running at port 5000'));

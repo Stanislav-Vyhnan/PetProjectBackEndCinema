@@ -35,10 +35,9 @@ export const getPosterById = async (req, res) => {
 
 export const createPoster = async (req, res) => {
   try {
-    const { description } = req.body;
     const linkToPoster = req.file.filename;
-    console.log(req.file);
-    await Posters.create({ description, linkToPoster });
+
+    await Posters.create({ ...req.body, linkToPoster });
     res.json({
       message: 'Poster Created',
     });

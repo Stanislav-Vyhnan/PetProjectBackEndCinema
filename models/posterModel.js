@@ -26,7 +26,7 @@ const Posters = db.define(
     description: {
       type: DataTypes.TEXT,
     },
-    releasedate: {
+    releaseDate: {
       type: DataTypes.STRING,
     },
     linkToPoster: {
