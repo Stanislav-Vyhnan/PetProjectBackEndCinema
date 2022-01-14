@@ -12,7 +12,7 @@ export const getAllPosters = async (req, res) => {
 export const getPosters = async (req, res) => {
   try {
     const posters = await Posters.findAll({
-      attributes: ['id', 'title', 'genre'],
+      attributes: ['id', 'title', 'genre', 'nameImg'],
     });
     res.json(posters);
   } catch (error) {
@@ -35,9 +35,8 @@ export const getPosterById = async (req, res) => {
 
 export const createPoster = async (req, res) => {
   try {
-    const linkToPoster = req.file.filename;
-
-    await Posters.create({ ...req.body, linkToPoster });
+    const nameImg = req.file.filename;
+    await Posters.create({ ...req.body, nameImg });
     res.json({
       message: 'Poster Created',
     });

@@ -2,8 +2,10 @@ import imagemin from 'imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';
 
-const optimizationImg = async () => {
-  await imagemin(['images/*.{jpg,png}'], {
+const optimizationImg = async (req, file, cb) => {
+  const img = req.file.filename;
+
+  await imagemin([`images/${img}`], {
     destination: 'images',
     plugins: [
       imageminMozjpeg({
@@ -14,9 +16,7 @@ const optimizationImg = async () => {
       }),
     ],
   });
-
-  console.log('Images optimized');
-  return;
+  cb(null);
 };
 
 export default optimizationImg;

@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './config/database.js';
-import posterRoutes from './routes/posters.js';
+import posterRoutes from './routes/index.js';
 import cors from 'cors';
 
 const app = express();
@@ -15,6 +15,6 @@ try {
 app.use(cors());
 app.use(express.json());
 app.use('/posters', posterRoutes);
-app.use(express.static('./images'));
+app.use('/upload', express.static('images'));
 
 app.listen(5000, () => console.log('Server running at port 5000'));

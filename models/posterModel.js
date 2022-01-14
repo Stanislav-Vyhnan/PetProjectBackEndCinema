@@ -29,7 +29,10 @@ const Posters = db.define(
     releaseDate: {
       type: DataTypes.STRING,
     },
-    linkToPoster: {
+    nameImg: {
+      type: DataTypes.STRING,
+    },
+    linkTrailerYT: {
       type: DataTypes.STRING,
     },
   },
